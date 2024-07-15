@@ -4,7 +4,10 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "valon": "github:yfrobot-tm/pxt-yfrobot-valon#026148df6135f854d8961425359c03505e3f66ae",
+        "minilfr": "github:kittenbot/pxt-minilfr#v0.3.4",
+        "ucl-junkrobot": "github:chevyng/pxt-ucl-junkrobot#v0.0.12"
     },
     "files": [
         "main.ts",

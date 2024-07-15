@@ -1,7 +1,7 @@
 //% color=#1910b5 icon="\uf1b9" block="Sensores de Linha"
 namespace sensoreslinha {
-    let leftSensorPin: AnalogPin;
-    let rightSensorPin: AnalogPin;
+    let leftSensorPin: AnalogPin.P0;
+    let rightSensorPin: AnalogPin.P1;
 
     let whiteLeft: number;
     let blackLeft: number;
@@ -14,8 +14,8 @@ namespace sensoreslinha {
 
     //% blockId=criando_sensores_linha block="Direcionando o sensor esquerdo em %leftPin| e o sensor direito em %rightPin"
     //% weight=100 blockSetVariable=sensorlinha
-    export function create(leftPin: AnalogPin, rightPin: AnalogPin): void {
-        leftSensorPin = leftPin;
+    export function create(leftPin: AnalogPin.P0, rightPin: AnalogPin.P1): void {
+        leftSensorPin = leftPin; 
         rightSensorPin = rightPin;
     }
 
