@@ -1,4 +1,4 @@
-//% color=#0fbc11 icon="\uf1b9" block="Sensores de Linha"
+//% color=#1910b5 icon="\uf1b9" block="Sensores de Linha"
 namespace sensoreslinha {
     let leftSensorPin: AnalogPin;
     let rightSensorPin: AnalogPin;
@@ -10,9 +10,9 @@ namespace sensoreslinha {
 
     let leftSensorValue: number = 0;
     let rightSensorValue: number = 0;
-    const ALPHA = 0.5; // Współczynnik wygładzania (między 0 a 1)
+    const ALPHA = 0.5; // Fator de suavização (entre 0 e 1)
 
-    //% blockId=criando_sensores_linha block="Criando o sensor esquedo em %leftPin| e o sensor direito em %rightPin"
+    //% blockId=criando_sensores_linha block="Direcionando o sensor esquerdo em %leftPin| e o sensor direito em %rightPin"
     //% weight=100 blockSetVariable=sensorlinha
     export function create(leftPin: AnalogPin, rightPin: AnalogPin): void {
         leftSensorPin = leftPin;
@@ -41,13 +41,13 @@ namespace sensoreslinha {
         basic.showIcon(IconNames.Yes);
     }
 
-    //% blockId=GRAVANDO_SENSOR_ESQUERDO block="Gravando sensor esquerdo"
+    //% blockId=GRAVANDO_SENSOR_ESQUERDO block="Sensor esquerdo"
     //% weight=80
     export function readLeftSensor(): number {
         return Math.round(getFilteredReading(leftSensorPin, false));
     }
 
-    //% blockId=GRAVANDO_SENSOR_DIREITO block="Gravando sensor direito"
+    //% blockId=GRAVANDO_SENSOR_DIREITO block="Sensor direito"
     //% weight=80
     export function readRightSensor(): number {
         return Math.round(getFilteredReading(rightSensorPin, false));
@@ -55,12 +55,12 @@ namespace sensoreslinha {
 
     //% blockId=ativando_sensores block="sensor ativo %sensor"
     //% weight=70
-    export function isOnLine(sensor: LineFollowerSensor): boolean {
+    export function ativando(sensor: SegueLinhaSensor): boolean {
         let sensorValue: number;
         let whiteValue: number;
         let blackValue: number;
 
-        if (sensor === LineFollowerSensor.Left) {
+        if (sensor === SegueLinhaSensor.Left) {
             sensorValue = Math.round(getFilteredReading(leftSensorPin, false));
             whiteValue = whiteLeft;
             blackValue = blackLeft;
@@ -94,7 +94,7 @@ namespace sensoreslinha {
     }
 
     // Enum for sensors
-    export enum LineFollowerSensor {
+    export enum SegueLinhaSensor {
         //% block="Esquerdo"
         Left,
         //% block="Direito"
