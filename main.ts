@@ -1,4 +1,4 @@
-//% color=#1910b5 icon="\uf1b9" block="Sensores de Linha"
+//% color=#1710b5 icon="\uf1b9" block="Sensores de Linha"
 namespace sensoreslinha {
     let leftSensorPin: AnalogPin.P0;
     let rightSensorPin: AnalogPin.P1;
